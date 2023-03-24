@@ -22,9 +22,7 @@ namespace Test.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
-
-            }
+            { }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,18 +37,15 @@ namespace Test.Models
                     .HasColumnType("int(11)")
                     .HasColumnName("id");
 
-                entity.Property(e => e.Altura).HasColumnType("int(11)");
+                entity.Property(e => e.Altura).HasColumnType("int(5)");
 
-                entity.Property(e => e.Edad)
-                    .IsRequired()
-                    .HasMaxLength(200)
-                    .IsFixedLength(true);
+                entity.Property(e => e.Edad).HasColumnType("int(3)");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
                     .HasMaxLength(60);
 
-                entity.Property(e => e.Peso).HasColumnType("int(11)");
+                entity.Property(e => e.Peso).HasColumnType("int(5)");
 
                 entity.Property(e => e.Sexo)
                     .IsRequired()
