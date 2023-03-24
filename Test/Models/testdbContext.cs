@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Options;
 
 #nullable disable
 
@@ -21,8 +22,7 @@ namespace Test.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            { }
+            optionsBuilder.UseMySql("server=127.0.0.1;database=testdb;user=root;password=root", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.10.1-mariadb"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
